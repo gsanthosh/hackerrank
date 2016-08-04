@@ -55,20 +55,43 @@ public class SuperReduceString {
         char[] charInput=charString.toCharArray();
         for(int i=0;i<charInput.length-1;i++)
         {
-          if(charInput[i] == charInput[i+1])
+        	int j=i+1;
+        	if(charInput[i]=='\0')
+        	{
+        		continue;
+        	}
+        	while(j < charInput.length && charInput[j]=='\0')
+        	{
+        		++j;
+        	}
+        	if(j==charInput.length)
+        	{
+        		break;
+        	}
+          if(charInput[i] == charInput[j])
           {
              charInput[i]='\0';
-             charInput[i+1]='\0';
+             charInput[j]='\0';
+             i=-1;
           }
         }
-        
+    	boolean isNonUnique=true;
         for(int i=0;i<charInput.length;i++)
         {
+        
             if(charInput[i]!='\0')
             {
+            	isNonUnique=false;
                 System.out.print(charInput[i]);
+               
             }
+          
         }
+        if(isNonUnique)
+        {
+        	System.out.print(" ");
+        }
+        
         
     }
 	}
