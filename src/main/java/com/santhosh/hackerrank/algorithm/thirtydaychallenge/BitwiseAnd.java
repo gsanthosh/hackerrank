@@ -41,6 +41,19 @@ The maximum possible value of  that is also  is , so we print  on a new line.
 */
 public class BitwiseAnd {
 
+	public static int maxNumberOnesInBinary(int number){
+		if(number==0 || number==1){
+			return number;
+		}
+		int maxNumberOnes=0;
+		while((number/2)>0)
+		{
+			++maxNumberOnes;
+			number=number/2;
+		}
+		return maxNumberOnes;	
+	}
+	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int t = in.nextInt();
@@ -48,12 +61,18 @@ public class BitwiseAnd {
 			int n = in.nextInt();
 			int k = in.nextInt();
 			int[] set = new int[n];
-			int maxNumber = 0;
+			int maxNumber=0;
+			
 			for (int i = 1; i <= n; i++) {
 				set[i - 1] = i;
 			}
+			outer:
 			for (int j = 1; j <= n - 1; j++) {
 				for (int l = j + 1; l <= n; l++) {
+					if(j>k && l>k)
+					{
+						break outer;
+					}
 					int andResult = set[j - 1] & set[l - 1];
 					if (andResult > maxNumber && andResult < k) {
 						maxNumber = andResult;
