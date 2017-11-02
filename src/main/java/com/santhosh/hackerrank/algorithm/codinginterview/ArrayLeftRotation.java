@@ -42,6 +42,7 @@ import java.util.Scanner;
  */
 public class ArrayLeftRotation {
 	public static int[] arrayLeftRotation(int[] a, int n, int k) {
+		int min=Integer.MIN_VALUE;
 		if(n==1 || n==k) {
 			return a;
 		}
