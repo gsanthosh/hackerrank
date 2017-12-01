@@ -95,7 +95,7 @@ public class Heap {
 	 */
 	public void maxHeapify() {
 		int length=heapElements.size();
-		for(int i=0;i<length-2;i++) {
+		for(int i=0;i<length;i++) {
 			int parentValue=heapElements.get(i);
 			if(doesLeftChildExists(i) && parentValue <getLeftChild(i)) {
 				int tmp=getLeftChild(i);
@@ -119,7 +119,7 @@ public class Heap {
 	 */
 	public void minHeapify() {
 		int length=heapElements.size();
-		for(int i=0;i<length-2;i++) {
+		for(int i=0;i<length;i++) {
 			int parentValue=heapElements.get(i);
 			if(doesLeftChildExists(i) && parentValue >getLeftChild(i)) {
 				int tmp=getLeftChild(i);
