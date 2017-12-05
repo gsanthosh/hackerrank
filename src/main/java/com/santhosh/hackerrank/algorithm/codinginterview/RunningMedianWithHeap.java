@@ -72,13 +72,17 @@ public class RunningMedianWithHeap {
 		
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		RunningMedianWithHeap rm = new RunningMedianWithHeap();
 		Scanner in = new Scanner(System.in);
 		int n = in.nextInt();
+		long startTime=System.currentTimeMillis();
 		for (int a_i = 0; a_i < n; a_i++) {
 			rm.runningMedian(in.nextInt());
 		}
+		long endTime=System.currentTimeMillis();
+		Thread.sleep(5000);
+		System.out.println("EXECUTIONTIME"+(endTime-(startTime+5000)));
 		
 	}
 
